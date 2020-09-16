@@ -1,0 +1,17 @@
+spring:
+  profiles: default
+  application:
+    name: organization-server
+
+server:
+  port: 8761
+
+eureka:
+  server:
+    eviction-interval-timer-in-ms: 50000 # с какой периодичностью эврика удаляет просроченных клиентов
+    wait-time-in-ms-when-sync-empty: 5 # время в миллисекундах, в течение которого Eureka Server будет ожидать между синхронизациями с клиентами.
+  client:
+    register-with-eureka: false # говорит серверу не регистрировать самого себя как сервис внутри service-discovery механизма.
+    fetch-registry: false # если включено - встроенный в сервер клиент попробует извлечь registry
+  instance:
+    hostname: my-eureka-server.com # host эврики (если сервер и клиент расположены не на Localhost)
